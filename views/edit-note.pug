@@ -1,0 +1,8 @@
+include doctypeTemplate
+div.note
+    input#title-note(type='text' value=notesList.title name='title')
+    textarea#textarea(cols='45' rows='5' name='description')=notesList.description
+    div#button-editing
+        a#button(type='submit') Edit
+        a#delete(type='submit') Delete
+script(src='/edit-delete-note.js')
