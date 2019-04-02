@@ -1,0 +1,15 @@
+include doctypeTemplate
+body
+    div#note-list
+        input#title-note(value=`${listItem.title}` name='title')
+        ul#todo-list
+            each val in listItem.text
+                li.todo-item
+                    input.checkbox(type='checkbox')
+                    input.title(type='text' value=`${val}`)
+        div#todo-manage
+            input#list-input(type='text' placeholder='enter task')
+            button#list-button(type='submit') Add
+            button#save-list(type='submit') Save
+            button#delete-list(type='submit') Delete
+    script(src='/edit-list.js')

@@ -1,0 +1,214 @@
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    min-width: 400px;
+}
+
+a {
+    text-decoration: none;
+}
+
+textarea {
+    resize: none;
+}
+
+.note {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 400px;
+    height: 200px;
+    background-color: #f6f1d3;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px;
+}
+
+#title-note {
+    outline: none;
+    background-color: #f6f1d3;
+    border: none;
+    font-size: 20px;
+    color: #78756f;
+    padding: 10px;
+    margin: 10px;
+}
+
+#textarea {
+    color: #78756f;
+    font-size: 15px;
+    outline: none;
+    border: none;
+    padding: 10px;
+    background-color: #f6f1d3;
+}
+
+#button, #delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    color: #78756f;
+    background-color: #f6f6f6;
+    font-size: 15px;
+    border-radius: 20px;
+    width: 100px;
+    height: 50px;
+    border: none;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    cursor: pointer;
+    padding: 0;
+    margin: 10px;
+}
+
+#button-editing {
+    display: flex;
+}
+
+#data-notes {
+    margin: 0;
+}
+
+#main-notes, #main-lists {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#note-page {
+    background-color: #f6a451;
+    padding: 10px;
+    width: 100px;
+    height: 20px;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #78756f;
+    margin-right: 10px;
+}
+
+#lists-page {
+    background-color: #f6a451;
+    padding: 10px;
+    width: 100px;
+    height: 20px;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #78756f;
+    margin-left: 10px;
+}
+
+.nav-bar {
+    margin: 30px;
+}
+
+.new-note, .new-lists {
+    background-color: #f6f1d3;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.new-note p:first-child {
+    color: #78756f;
+    text-align: center;
+    margin: 0;
+    font-size: 20px;
+}
+
+.new-note p:last-child {
+    font-size: 15px;
+    word-wrap: break-word;
+    color: #78756f;
+    margin: 0;
+}
+
+/*#####   Lists   @@@@@*/
+
+#note-list {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 400px;
+    background-color: #f6f1d3;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+#todo-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#todo-manage {
+    display: flex;
+    justify-content: space-between;
+}
+
+#list-input {
+    padding: 10px;
+    outline: none;
+    background-color: #f6f6f6;
+    border: none;
+    font-size: 18px;
+    color: #78756f;
+    width: 100%;
+    border-radius: 20px;
+    margin: 10px;
+}
+
+#list-button, #save-list, #delete-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    color: #78756f;
+    background-color: #f6f6f6;
+    font-size: 15px;
+    border-radius: 20px;
+    width: 100px;
+    height: 50px;
+    border: none;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    cursor: pointer;
+    padding: 10px;
+    margin: 10px;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.checkbox {
+    padding: 0;
+    margin: 0;
+    width: 20px;
+    height: 20px;
+}
+
+.title {
+    padding: 5px;
+    color: #78756f;
+    outline: none;
+    background-color: #f6f1d3;
+    border: none;
+    font-size: 15px;
+}
+
+.new-lists p {
+    color: #78756f;
+    text-align: center;
+    margin: 0;
+    font-size: 20px;
+}

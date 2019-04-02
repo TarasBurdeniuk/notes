@@ -1,0 +1,7 @@
+include doctypeTemplate
+body
+    div.note
+        input#title-note(placeholder='Title' name='title')
+        textarea#textarea(cols='45' rows='5' placeholder='Enter note' name='description')
+        a#button(type='submit') Add
+    script(src='/add-notes.js')
