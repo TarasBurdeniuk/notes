@@ -32,7 +32,7 @@ saveButton.addEventListener('click', async function () {
     const text = Array.from(document.getElementsByClassName('title')).map(item => item.value);
     const title = document.getElementById('title-note').value;
 
-    await fetch('/api/lists', {
+    await fetch('/lists/create', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

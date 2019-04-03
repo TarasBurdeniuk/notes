@@ -1,18 +1,18 @@
-include doctypeTemplate
-body
+extends /index
+block header
     div.nav-bar
-        a#note-page(target="_blank" href='/notes') New note
-        a#lists-page(target="_blank" href='/lists') New lists
+        a#note-page(href='/notes') New note
+        a#lists-page(href='/lists') New lists
     if notesList
         div#main-notes
             each item in notesList
-                a.new-note(target="_blank" href=`/notes/${item._id}`)
+                a.new-note(href=`/notes/${item._id}`)
                     p= `${item.title}`
                     p= `${item.description}`
     if listItem
         div#main-lists
             each val in listItem
-                a.new-lists(target='_blank' href=`/lists/${val._id}`)
+                a.new-lists(href=`/lists/${val._id}`)
                     p= `${val.title}`
                     each item in val.text
                         li.todo-item
