@@ -2,7 +2,7 @@ document.getElementById('button').addEventListener('click', async function () {
     const title = document.getElementById('title-note').value;
     const description = document.getElementById('textarea').value;
     const id = window.location.pathname.substring(7);
-    await fetch('/api/notes/:id', {
+    await fetch('/notes/:id', {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -21,7 +21,7 @@ document.getElementById('button').addEventListener('click', async function () {
 
 document.getElementById('delete').addEventListener('click', async function () {
     const id = window.location.pathname.substring(7);
-    await fetch('/api/notes/:id', {
+    await fetch('/notes/:id', {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
