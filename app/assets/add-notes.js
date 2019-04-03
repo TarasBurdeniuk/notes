@@ -10,7 +10,7 @@ document.getElementById('button').addEventListener('click', async function () {
         return;
     }
 
-    await fetch('/api/notes', {
+    await fetch('/create', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

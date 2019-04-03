@@ -34,7 +34,7 @@ saveButton.addEventListener('click', async function () {
     const title = document.getElementById('title-note').value;
     const id = window.location.pathname.substring(7);
 
-    await fetch('/api/lists/:id', {
+    await fetch(':id/update', {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -53,7 +53,7 @@ saveButton.addEventListener('click', async function () {
 
 deleteButton.addEventListener('click', async function f() {
     const id = window.location.pathname.substring(7);
-    await fetch('/api/lists/:id', {
+    await fetch(':id/delete', {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'

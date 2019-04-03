@@ -1,5 +1,6 @@
-include doctypeTemplate
-body
+extends /index
+
+block header
     div#note-list
         input#title-note(placeholder='Title' name='title')
         ul#todo-list
@@ -7,4 +8,4 @@ body
             input#list-input(type='text' placeholder='enter task')
             button#list-button(type='submit') Add
             button#save-list(type='submit') Save
-script(src='/add-lists.js')
+    script(src='/add-lists.js')

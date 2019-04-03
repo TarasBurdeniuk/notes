@@ -34,7 +34,6 @@ exports.getNote = async () => {
     let tasks = null;
     try {
         client = await new MongoClient.connect(uri, {useNewUrlParser: true});
-        console.log('getNote');
         const currentDb = client.db(dbName);
         const todoCol = currentDb.collection('notes');
         tasks = todoCol.find({}).toArray();
