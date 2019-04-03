@@ -27,7 +27,8 @@ app.get('/notes/:id', async (req, res) => {
   const id = req.params.id;
   const notesList = await db.getOneNote(id);
 
-  res.render(`views/edit-note`, {title: 'Note', notesList});
+  res.render(`notes/views/edit-note`, {title: 'Note', notesList});
+
 });
 //
 app.post('/create', async function (req, res) {
