@@ -27,10 +27,9 @@ app.get('/notes/:id', async (req, res) => {
   const id = req.params.id;
   const notesList = await db.getOneNote(id);
 
-  res.render(`notes/views/edit-note`, {title: 'Note', notesList});
-
+  res.render(`notes/views/update`, {title: 'Note', notesList});
 });
-//
+
 app.post('/create', async function (req, res) {
   await db.addNote(req.body);
   const [list, note] = [
@@ -44,8 +43,8 @@ app.post('/create', async function (req, res) {
     listItem: list
   });
 });
-//
-app.put('/notes/:id/update', async (req, res) => {
+
+app.put('/notes/:id', async (req, res) => {
   await db.updateNote(req.body);
 
   const [list, note] = [
@@ -53,14 +52,14 @@ app.put('/notes/:id/update', async (req, res) => {
     await db.getNote()
   ];
 
-  res.render('index', {
+  res.render('views/index', {
     title: 'ToDo',
     notesList: note,
     listItem: list
   });
 });
 
-app.delete('/api/notes/:id', async (req, res) => {
+app.delete('/notes/:id', async (req, res) => {
   await db.deleteNote(req.body);
 
   const [list, note] = [
@@ -68,7 +67,7 @@ app.delete('/api/notes/:id', async (req, res) => {
     await db.getNote()
   ];
 
-  res.render('index', {
+  res.render('views/index', {
     title: 'ToDo',
     notesList: note,
     listItem: list
@@ -92,7 +91,7 @@ app.get('/lists', async (req, res) => {
   res.render('list/views/create', {title: 'Lists'})
 });
 
-app.post('/lists/create', async (req, res) => {
+app.post('/lists', async (req, res) => {
   await db.addLists(req.body);
 
   const [list, note] = [
@@ -114,7 +113,8 @@ app.get('/lists/:id', async (req, res) => {
   res.render(`list/views/update`, {title: 'Edit list', listItem});
 });
 
-app.put('/lists/:id/update', async (req, res) => {
+app.put('/lists/:id', async (req, res) => {
+
   await db.updateList(req.body);
   const [list, note] = [
     await db.getList(),
@@ -128,7 +128,7 @@ app.put('/lists/:id/update', async (req, res) => {
   });
 });
 
-app.delete('/lists/:id/delete', async (req, res) => {
+app.delete('/lists/:id', async (req, res) => {
   await db.deleteList(req.body);
 
   const [list, note] = [
@@ -136,7 +136,8 @@ app.delete('/lists/:id/delete', async (req, res) => {
     await db.getNote()
   ];
 
-  res.render('index', {
+  res.render('views/index', {
+
     title: 'ToDo',
     notesList: note,
     listItem: list
