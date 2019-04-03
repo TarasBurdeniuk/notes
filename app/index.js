@@ -29,7 +29,7 @@ app.get('/notes/:id', async (req, res) => {
 
   res.render(`notes/views/update`, {title: 'Note', notesList});
 });
-//
+
 app.post('/create', async function (req, res) {
   await db.addNote(req.body);
   const [list, note] = [
@@ -43,7 +43,7 @@ app.post('/create', async function (req, res) {
     listItem: list
   });
 });
-//
+
 app.put('/notes/:id', async (req, res) => {
   await db.updateNote(req.body);
 
@@ -114,6 +114,7 @@ app.get('/lists/:id', async (req, res) => {
 });
 
 app.put('/lists/:id', async (req, res) => {
+
   await db.updateList(req.body);
   const [list, note] = [
     await db.getList(),
@@ -136,6 +137,7 @@ app.delete('/lists/:id', async (req, res) => {
   ];
 
   res.render('views/index', {
+
     title: 'ToDo',
     notesList: note,
     listItem: list
