@@ -1,6 +1,6 @@
 const ul = document.getElementById('todo-list');
-const saveButton = document.getElementById('save-list');
-const deleteButton = document.getElementById('delete-list');
+const saveButton = document.getElementById('save');
+const deleteButton = document.getElementById('delete');
 
 function addTask() {
     const task = document.getElementById('list-input');
@@ -61,6 +61,19 @@ deleteButton.addEventListener('click', async function f() {
         body: JSON.stringify({
             id
         })
+    })
+        .catch((err) => {
+            if (err) throw err;
+        });
+    window.location.pathname = '/';
+});
+
+document.getElementById('return').addEventListener('click', function () {
+    fetch('/', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
     })
         .catch((err) => {
             if (err) throw err;

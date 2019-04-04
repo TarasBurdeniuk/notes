@@ -3,5 +3,7 @@ block header
     div.note
         input#title-note(placeholder='Title' name='title')
         textarea#textarea(cols='45' rows='5' placeholder='Enter note' name='description')
-        a#button(type='submit') Add
+        div#todo-manage
+            a#save(type='submit') Add
+            a#return(type='submit') Return
     script(src='/add-notes.js')

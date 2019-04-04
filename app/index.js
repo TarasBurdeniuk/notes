@@ -30,7 +30,7 @@ app.get('/notes/:id', async (req, res) => {
   res.render(`notes/views/update`, {title: 'Note', notesList});
 });
 
-app.post('/create', async function (req, res) {
+app.post('/notes', async function (req, res) {
   await db.addNote(req.body);
   const [list, note] = [
     await db.getList(),
