@@ -46,7 +46,7 @@ textarea {
     background-color: #f6f1d3;
 }
 
-#button, #delete {
+#save, #delete, #return, #list-button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,7 +54,7 @@ textarea {
     color: #78756f;
     background-color: #f6f6f6;
     font-size: 15px;
-    border-radius: 20px;
+    border-radius: 10px;
     width: 100px;
     height: 50px;
     border: none;
@@ -104,6 +104,8 @@ textarea {
 }
 
 .nav-bar {
+    display: flex;
+    justify-content: center;
     margin: 30px;
 }
 
@@ -161,26 +163,7 @@ textarea {
     font-size: 18px;
     color: #78756f;
     width: 100%;
-    border-radius: 20px;
-    margin: 10px;
-}
-
-#list-button, #save-list, #delete-list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    outline: none;
-    color: #78756f;
-    background-color: #f6f6f6;
-    font-size: 15px;
-    border-radius: 20px;
-    width: 100px;
-    height: 50px;
-    border: none;
-    text-transform: uppercase;
-    box-sizing: border-box;
-    cursor: pointer;
-    padding: 10px;
+    border-radius: 10px;
     margin: 10px;
 }
 

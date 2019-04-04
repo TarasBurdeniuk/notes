@@ -1,4 +1,4 @@
-document.getElementById('button').addEventListener('click', async function () {
+document.getElementById('save').addEventListener('click', async function () {
     const title = document.getElementById('title-note').value;
     const description = document.getElementById('textarea').value;
 
@@ -23,5 +23,18 @@ document.getElementById('button').addEventListener('click', async function () {
         .catch((err) => {
             if (err) throw err;
         });
+    window.location.pathname = '/';
+});
+
+document.getElementById('return').addEventListener('click', function () {
+   fetch('/', {
+       method: 'GET',
+       headers: {
+           'Content-Type': 'application/json'
+       },
+   })
+       .catch((err) => {
+           if (err) throw err;
+       });
     window.location.pathname = '/';
 });

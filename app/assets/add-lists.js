@@ -1,5 +1,6 @@
 const ul = document.getElementById('todo-list');
-const saveButton = document.getElementById('save-list');
+const saveButton = document.getElementById('save');
+const returnButton = document.getElementById('return');
 
 function addTask() {
     const task = document.getElementById('list-input');
@@ -41,6 +42,19 @@ saveButton.addEventListener('click', async function () {
             title,
             text
         })
+    })
+        .catch((err) => {
+            if (err) throw err;
+        });
+    window.location.pathname = '/';
+});
+
+returnButton.addEventListener('click', function () {
+    fetch('/', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
     })
         .catch((err) => {
             if (err) throw err;
