@@ -6,7 +6,6 @@ const ObjectId = require('mongodb').ObjectID;
 
 exports.checkConnection = async () => {
     const connection = await MongoClient.connect(uri, {useNewUrlParser: true});
-    console.log('connected to mongoDB');
 
     connection.close();
 };
@@ -109,7 +108,6 @@ exports.getList = async () => {
     let tasks = null;
     try {
         client = await new MongoClient.connect(uri, {useNewUrlParser: true});
-        console.log('getLists');
         const currentDb = client.db(dbName);
         const todoCol = currentDb.collection('lists');
         tasks = todoCol.find({}).toArray();
