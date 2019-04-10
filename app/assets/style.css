@@ -153,23 +153,10 @@ textarea {
     transform: rotateX(-180deg) translateZ(0px);
 }
 
-/*#lists-page {*/
-/*    font-size: 20px;*/
-/*    background-color: #f6a451;*/
-/*    padding: 10px;*/
-/*    width: 100px;*/
-/*    height: 20px;*/
-/*    border-radius: 30px;*/
-/*    text-align: center;*/
-/*    text-decoration: none;*/
-/*    color: #78756f;*/
-/*    margin-left: 10px;*/
-/*}*/
 .notes-all-link {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-
 }
 
 .nav-bar {
@@ -349,7 +336,6 @@ textarea {
     margin: 0;
     font-size: 20px;
 }
-
 .note {
     -webkit-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
