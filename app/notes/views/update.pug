@@ -1,10 +1,13 @@
 extends /index
 block header
     div.note
-        input#title-note(type='text' value=notesList.title name='title')
-        textarea#textarea(cols='45' rows='5' name='description')=notesList.description
+        input(id='title-note' class='note-title-text' type='text' value=notesList.title name='title')
+        textarea#textarea(cols='45' rows='10' name='description')=notesList.description
         div#todo-manage
-            a#save(type='submit') Edit
-            a#delete(type='submit') Delete
-            a#return(type='submit') Return
+            a#save(type='submit')
+                i(class="fas fa-save")
+            a#delete(type='submit')
+                i(class="fas fa-trash-alt")
+            a#return(type='submit')
+                i(class="fas fa-undo")
     script(src='/edit-delete-note.js')

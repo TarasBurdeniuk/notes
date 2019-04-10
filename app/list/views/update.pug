@@ -1,16 +1,22 @@
 extends /index
 block header
-    div#note-list
-        input#title-note(value=`${listItem.title}` name='title')
+    div#note-list(class='note')
+        input#title-note(class='note-title-text', value=`${listItem.title}` name='title')
         ul#todo-list
             each val in listItem.text
-                li.todo-item
-                    input.checkbox(type='checkbox')
-                    input.title(type='text' value=`${val}`)
+                li.todo-item.todo-item_ml
+                    label
+                        input.checkbox(type='checkbox')
+                        span.icon.icon_top
+                        input.list(type='text' value=`${val}`)
         div#todo-manage
-            input#list-input(type='text' placeholder='enter task')
-            button#list-button(type='submit') Add
-            button#save(type='submit') Save
-            button#delete(type='submit') Delete
-            button#return(type='submit') Return
+            input#list-input(type='text' placeholder='Enter task')
+            button#list-button(type='submit')
+                i(class="fas fa-plus-circle")
+            button#save(type='submit')
+                i(class="fas fa-save")
+            button#delete(type='submit')
+                i(class="fas fa-trash-alt")
+            button#return(type='submit')
+                i(class="fas fa-undo")
     script(src='/edit-list.js')

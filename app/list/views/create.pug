@@ -1,12 +1,15 @@
 extends /index
 
 block header
-    div#note-list
-        input#title-note(placeholder='Title' name='title')
+    div#note-list(class='note')
+        input#title-note(class='note-title-text' placeholder='Title' name='title')
         ul#todo-list
         div#todo-manage
-            input#list-input(type='text' placeholder='enter task')
-            button#list-button(type='submit') Add
-            button#save(type='submit') Save
-            button#return(type='submit') Return
+            input#list-input(type='text' placeholder='Enter task')
+            button#list-button(type='submit')
+                i(class="fas fa-plus-circle")
+            button#save(type='submit')
+                i(class="fas fa-save")
+            button#return(type='submit')
+                i(class="fas fa-undo")
     script(src='/add-lists.js')
