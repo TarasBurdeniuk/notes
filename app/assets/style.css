@@ -6,14 +6,6 @@
 
 }
 
-body {
-    /*display: flex;*/
-    /*align-items: center;*/
-    /*flex-direction: column;*/
-    /*margin: 0;*/
-    /*padding: 0;*/
-}
-
 a {
     text-decoration: none;
 }
@@ -93,7 +85,6 @@ textarea {
     cursor: pointer;
     padding: 0;
     margin: 10px;
-    /*margin-top: 20px;*/
 }
 .fas {
     font-size: 20px;
@@ -120,13 +111,11 @@ textarea {
 #note-page, #lists-page {
     position: relative;
     display: block;
-    /*background-color: #f6a451;*/
     height: 50px;
     border-radius: 30px;
     text-align: center;
     text-decoration: none;
     color: #fff;
-    /*margin-right: 10px;*/
     width: 180px;
     transform-style: preserve-3d;
     perspective: 1000px;
@@ -321,11 +310,13 @@ textarea {
     width: 100%;
     height: 100%;
     transition: 0.5s;
-    /*transition-delay: .5s;*/
 }
 
 .checkbox:checked ~ .list::before {
     left: 100%;
+}
+.list:focus {
+    outline: none;
 }
 
 .list::after {
