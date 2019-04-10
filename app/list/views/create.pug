@@ -2,10 +2,10 @@ extends /index
 
 block header
     div#note-list(class='note')
-        input#title-note(class='note-title-text' placeholder='Title' name='title')
+        input#title-note(maxlength="15" class='note-title-text' placeholder='Title' name='title')
         ul#todo-list
         div#todo-manage
-            input#list-input(type='text' placeholder='Enter task')
+            input#list-input(maxlength="20" type='text' placeholder='Enter task')
             button#list-button(type='submit')
                 i(class="fas fa-plus-circle")
             button#save(type='submit')

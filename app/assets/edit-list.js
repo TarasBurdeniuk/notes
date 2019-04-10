@@ -9,19 +9,26 @@ function addTask() {
     }
 
     const li = document.createElement('li');
-    li.className = 'todo-item';
+    li.className = 'todo-item todo-item_ml';
+
+    const label = document.createElement('label');
 
     const input = document.createElement('input');
     input.className = 'checkbox';
     input.name = 'check';
     input.setAttribute('type', 'checkbox');
 
+    const span = document.createElement('span');
+    span.className = 'icon icon_top';
+
     const inputLabel = document.createElement('input');
-    inputLabel.className = 'title';
+    inputLabel.className = 'list list-text';
     inputLabel.value = task.value;
 
-    li.appendChild(input);
-    li.appendChild(inputLabel);
+    label.appendChild(input);
+    label.appendChild(span);
+    label.appendChild(inputLabel);
+    li.appendChild(label);
     ul.appendChild(li);
 
     task.value = '';
@@ -33,6 +40,11 @@ saveButton.addEventListener('click', async function () {
     const text = Array.from(document.getElementsByClassName('list-text')).map(item => item.value);
     const title = document.getElementById('title-note').value;
     const id = window.location.pathname.substring(7);
+
+    if (!title) {
+        alert('You must enter title');
+        return;
+    }
 
     await fetch('/lists/:id', {
         method: 'PUT',
