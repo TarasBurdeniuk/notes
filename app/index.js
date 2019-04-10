@@ -3,8 +3,6 @@ const bodyParser = require('body-parser');
 // База данных в другом месте
 const db = require('../config/db/db');
 
-// const list = require('./list');
-// const notes = require('./notes');
 const app = express();
 app.locals.basedir = __dirname;
 console.log(app.locals.basedir);
@@ -18,6 +16,10 @@ app.set('views', __dirname);
 app.set('view engine', 'pug');
 
 app.use(express.static(__dirname + '/assets'));
+
+setInterval(function () {
+    app.get('https://bandanotes.herokuapp.com/')
+}, 300000);
 
 app.get('/notes', async (req, res) => {
   res.render('notes/views/create', {title: 'Add notes'})
