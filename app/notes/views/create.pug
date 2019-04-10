@@ -1,9 +1,11 @@
 extends /index
 block header
     div.note
-        input#title-note(placeholder='Title' name='title')
-        textarea#textarea(cols='45' rows='5' placeholder='Enter note' name='description')
+        input#title-note(class='note-title-text' placeholder='Title' name='title')
+        textarea#textarea(cols='45' rows='10' placeholder='Enter note' name='description')
         div#todo-manage
-            a#save(type='submit') Add
-            a#return(type='submit') Return
+            a#save(type='submit')
+                i(class="fas fa-save")
+            a#return(type='submit')
+                i(class="fas fa-undo")
     script(src='/add-notes.js')
