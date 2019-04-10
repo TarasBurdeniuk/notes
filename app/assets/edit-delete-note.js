@@ -2,6 +2,12 @@ document.getElementById('save').addEventListener('click', async function () {
     const title = document.getElementById('title-note').value;
     const description = document.getElementById('textarea').value;
     const id = window.location.pathname.substring(7);
+
+    if (!title) {
+        alert('You must enter title');
+        return;
+    }
+
     await fetch('/notes/:id', {
         method: 'PUT',
         headers: {
