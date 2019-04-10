@@ -1,21 +1,28 @@
 extends /index
 block header
     div.nav-bar
-        a#note-page(href='/notes') New note
-        a#lists-page(href='/lists') New lists
-    if notesList
-        div#main-notes
-            each item in notesList
-                a.new-note(href=`/notes/${item._id}`)
-                    p= `${item.title}`
-                    p= `${item.description}`
-    if listItem
-        div#main-lists
-            each val in listItem
-                a.new-lists(href=`/lists/${val._id}`)
-                    p= `${val.title}`
-                    each item in val.text
-                        li.todo-item
-                            input.checkbox(type='checkbox')
-                            label.title= `${item}`
+        div.container
+            div.notes-link
+                a#note-page(href='/notes')
+                    span.notes-nav-link_front New notes
+                    span.notes-nav-link_center
+                    span.notes-nav-link_back Click
+                a#lists-page(href='/lists')
+                    span.notes-nav-link_front New lists
+                    span.notes-nav-link_center
+                    span.notes-nav-link_back Click
+    div#main-notes
+        div.container
+            div.notes-all-link
+                each item in notesList
+                    a.new-note(href=`/notes/${item._id}`)
+                        h4.note-title= `${item.title}`
+                        p.note-description= `${item.description}`
+                each val in listItem
+                    a.new-lists(href=`/lists/${val._id}`)
+                        h4.note-title= `${val.title}`
+                        each item in val.text
+                            li.todo-item
+                                input.checkbox(type='checkbox')
+                                label.title= `${item}`
     script(src='main.js')
