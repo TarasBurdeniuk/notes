@@ -1,7 +1,7 @@
 extends /index
 block header
     div#note-list(class='note')
-        input#title-note(class='note-title-text', value=`${listItem.title}` name='title')
+        input#title-note(class='note-title-text' maxlength="15" value=`${listItem.title}` name='title')
         ul#todo-list
             each val in listItem.text
                 li.todo-item.todo-item_ml
@@ -10,7 +10,7 @@ block header
                         span.icon.icon_top
                         input(class='list list-text' type='text' value=`${val}`)
         div#todo-manage
-            input#list-input(type='text' placeholder='Enter task')
+            input#list-input(type='text' maxlength="20" placeholder='Enter task')
             button#list-button(type='submit')
                 i(class="fas fa-plus-circle")
             button#save(type='submit')

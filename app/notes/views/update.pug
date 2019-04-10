@@ -1,7 +1,7 @@
 extends /index
 block header
     div.note
-        input(id='title-note' class='note-title-text' type='text' value=notesList.title name='title')
+        input(id='title-note' maxlength="15" class='note-title-text' type='text' value=notesList.title name='title')
         textarea#textarea(cols='45' rows='10' name='description')=notesList.description
         div#todo-manage
             a#save(type='submit')
