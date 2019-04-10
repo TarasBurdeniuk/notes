@@ -23,6 +23,8 @@ block header
                         h4.note-title= `${val.title}`
                         each item in val.text
                             li.todo-item
-                                input.checkbox(type='checkbox')
-                                label.title= `${item}`
+                                label
+                                    input.checkbox(type='checkbox')
+                                    span.icon
+                                    span.list= `${item}`
     script(src='main.js')
