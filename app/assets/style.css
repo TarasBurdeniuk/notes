@@ -245,6 +245,7 @@ textarea {
     text-align: left;
     margin-left: 20px;
     margin-top: 12px;
+    word-wrap: break-word;
 }
 
 /*#####   Lists   @@@@@*/

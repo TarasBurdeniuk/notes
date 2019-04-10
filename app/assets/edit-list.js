@@ -30,7 +30,7 @@ function addTask() {
 document.getElementById('list-button').addEventListener('click', addTask);
 
 saveButton.addEventListener('click', async function () {
-    const text = Array.from(document.getElementsByClassName('title')).map(item => item.value);
+    const text = Array.from(document.getElementsByClassName('list-text')).map(item => item.value);
     const title = document.getElementById('title-note').value;
     const id = window.location.pathname.substring(7);
 
