@@ -102,6 +102,14 @@ textarea {
     -moz-box-shadow: 2px 3px 11px 0 rgba(0, 0, 0, 0.75);
     box-shadow: 2px 3px 11px 0 rgba(0, 0, 0, 0.75);
 }
+.fas {
+    font-size: 20px;
+}
+#save:hover, #delete:hover, #return:hover {
+    -webkit-box-shadow: 2px 3px 11px 0 rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 3px 11px 0 rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 3px 11px 0 rgba(0, 0, 0, 0.75);
+}
 
 #button-editing {
     display: flex;
@@ -252,6 +260,7 @@ textarea {
     text-align: left;
     margin-left: 20px;
     margin-top: 12px;
+    word-wrap: break-word;
 }
 
 /*#####   Lists   @@@@@*/
@@ -328,7 +337,6 @@ textarea {
 .list:focus {
     outline: none;
 }
-
 
 .list::after {
     content: '';
