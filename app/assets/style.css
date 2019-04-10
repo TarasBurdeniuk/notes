@@ -3,7 +3,6 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-
 }
 
 a {
@@ -85,6 +84,15 @@ textarea {
     cursor: pointer;
     padding: 0;
     margin: 10px;
+    /*margin-top: 20px;*/
+}
+.fas {
+    font-size: 20px;
+}
+#save:hover, #delete:hover, #return:hover {
+    -webkit-box-shadow: 2px 3px 11px 0 rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 3px 11px 0 rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 3px 11px 0 rgba(0, 0, 0, 0.75);
 }
 .fas {
     font-size: 20px;
@@ -191,7 +199,6 @@ textarea {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-
 }
 
 .nav-bar {
@@ -278,6 +285,7 @@ textarea {
     align-items: center;
     margin-left: 20px;
 }
+
 .todo-item_ml {
     margin-left: 0;
 }
@@ -310,14 +318,17 @@ textarea {
     width: 100%;
     height: 100%;
     transition: 0.5s;
+
 }
 
 .checkbox:checked ~ .list::before {
     left: 100%;
 }
+
 .list:focus {
     outline: none;
 }
+
 
 .list::after {
     content: '';
@@ -357,6 +368,7 @@ textarea {
     transform: translateY(-100%);
     transition: .5s;
 }
+
 .icon_top {
     top: 0;
 }
@@ -370,10 +382,6 @@ textarea {
     text-align: center;
     margin: 0;
     font-size: 20px;
-}
-
-.note {
-
 }
 
 @media screen and (max-width: 600px) {
