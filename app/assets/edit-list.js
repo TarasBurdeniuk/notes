@@ -2,6 +2,7 @@ const ul = document.getElementById('todo-list');
 const saveButton = document.getElementById('save');
 const deleteButton = document.getElementById('delete');
 let checkbox = null || Array.from(document.getElementsByClassName('checkbox'));
+Array.from(document.querySelectorAll('#delItem')).forEach(item => item.addEventListener('click', deleteTodoItem));
 
 function addTask() {
     const task = document.getElementById('list-input');
@@ -16,13 +17,20 @@ function addTask() {
     input.className = 'checkbox';
     input.setAttribute('type', 'checkbox');
 
+    const button = document.createElement('button');
+    button.id = 'delItem';
+    button.innerHTML = '<i class="fas fa-times-circle"></i>';
+    button.addEventListener('click', deleteTodoItem);
+
     const inputLabel = document.createElement('input');
     inputLabel.className = 'list';
     inputLabel.type = 'text';
     inputLabel.value = task.value;
+    inputLabel.setAttribute('maxlength', '20');
 
     li.appendChild(input);
     li.appendChild(inputLabel);
+    li.appendChild(button);
     ul.appendChild(li);
 
     task.value = '';
@@ -32,8 +40,12 @@ document.getElementById('list-button').addEventListener('click', addTask);
 
 checkbox.forEach(item => item.addEventListener('click', function () {
     this.nextSibling.classList.toggle('checked');
-    console.log(checkbox);
 }));
+
+function deleteTodoItem() {
+    const listItem = this.parentNode;
+    ul.removeChild(listItem);
+}
 
 saveButton.addEventListener('click', async function () {
     const text = Array.from(document.getElementsByClassName('list')).map(item => item.value);
@@ -43,6 +55,9 @@ saveButton.addEventListener('click', async function () {
 
     if (!title) {
         alert('You must enter title');
+        return;
+    } else if (!text.length) {
+        alert('You must enter description in task');
         return;
     }
 

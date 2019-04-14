@@ -64,7 +64,7 @@ textarea {
     border: none;
 }
 
-#save, #delete, #return, #list-button {
+#save, #delete, #return, #list-button, #delItem {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,18 +76,22 @@ textarea {
     width: 50px;
     height: 50px;
     border: none;
-    text-transform: uppercase;
     box-sizing: border-box;
     cursor: pointer;
     padding: 0;
     margin: 10px;
 }
 
+#delItem {
+    width: 40px;
+    height: 40px;
+}
+
 .fas {
     font-size: 20px;
 }
 
-#save:hover, #delete:hover, #return:hover {
+#save:hover, #delete:hover, #return:hover, #list-button:hover, #delItem:hover {
     -webkit-box-shadow: 2px 3px 11px 0 rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 2px 3px 11px 0 rgba(0, 0, 0, 0.75);
     box-shadow: 2px 3px 11px 0 rgba(0, 0, 0, 0.75);
@@ -287,6 +291,8 @@ textarea {
     color: black;
     transition: 0.5s;
     border: none;
+    margin: 0 10px;
+    width: 100%;
 }
 
 .new-lists p {

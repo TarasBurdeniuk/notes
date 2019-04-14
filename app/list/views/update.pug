@@ -6,7 +6,9 @@ block header
             each val, index in listItem.classlist
                 li.todo-item.todo-item_ml
                     input.checkbox(type='checkbox')
-                    input(class=`list ${val}` type='text' value= listItem.text[index])
+                    input(class=`list ${val}` type='text' value= listItem.text[index] maxlength="20")
+                    button#delItem
+                        i(class="fas fa-times-circle")
         div#todo-manage
             input#list-input(type='text' maxlength="20" placeholder='Enter task')
             button#list-button(type='submit')

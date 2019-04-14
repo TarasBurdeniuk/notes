@@ -69,8 +69,6 @@ checkbox.forEach(item => item.addEventListener('click', async function () {
 
     const classlist = Array.from(this.parentNode.parentNode.querySelectorAll('.list')).map(item => item.className.substring(5));
 
-    console.log(classlist);
-
     await fetch('/', {
         method: 'PUT',
         headers: {
