@@ -11,24 +11,17 @@ function addTask() {
     const li = document.createElement('li');
     li.className = 'todo-item todo-item_ml';
 
-    const label = document.createElement('label');
-
     const input = document.createElement('input');
     input.className = 'checkbox';
-    input.name = 'check';
     input.setAttribute('type', 'checkbox');
 
-    const span = document.createElement('span');
-    span.className = 'icon icon_top';
-
     const inputLabel = document.createElement('input');
-    inputLabel.className = 'list list-text';
+    inputLabel.className = 'list';
+    inputLabel.type = 'text';
     inputLabel.value = task.value;
 
-    label.appendChild(input);
-    label.appendChild(span);
-    label.appendChild(inputLabel);
-    li.appendChild(label);
+    li.appendChild(input);
+    li.appendChild(inputLabel);
     ul.appendChild(li);
 
     task.value = '';
@@ -37,8 +30,10 @@ function addTask() {
 document.getElementById('list-button').addEventListener('click', addTask);
 
 saveButton.addEventListener('click', async function () {
-    const text = Array.from(document.getElementsByClassName('list-text')).map(item => item.value);
+    const text = Array.from(document.getElementsByClassName('list')).map(item => item.value);
     const title = document.getElementById('title-note').value;
+    const classlist = Array(Array.from(document.getElementsByClassName('list')).length).fill('');
+    console.log(classlist);
     if (!title) {
         alert('You must enter title');
         return;
@@ -50,6 +45,7 @@ saveButton.addEventListener('click', async function () {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
+            classlist,
             title,
             text
         })

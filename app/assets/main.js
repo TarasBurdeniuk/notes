@@ -57,3 +57,31 @@ document.getElementById('lists-page').addEventListener('click', async function (
 lists.forEach(item => {
     item.addEventListener('click', getList);
 });
+
+
+const checkbox = Array.from(document.getElementsByClassName('checkbox'));
+
+checkbox.forEach(item => item.addEventListener('click', async function () {
+    const id = this.parentNode.parentNode.getAttribute("href").substring(7);
+    const element = this.nextSibling;
+
+    element.classList.toggle('checked');
+
+    const classlist = Array.from(this.parentNode.parentNode.querySelectorAll('.list')).map(item => item.className.substring(5));
+
+    console.log(classlist);
+
+    await fetch('/', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            classlist,
+            id
+        })
+    })
+        .catch((err) => {
+            if (err) throw err;
+        });
+}));

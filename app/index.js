@@ -22,127 +22,131 @@ setInterval(function () {
 }, 300000);
 
 app.get('/notes', async (req, res) => {
-  res.render('notes/views/create', {title: 'Add notes'})
+    res.render('notes/views/create', {title: 'Add notes'})
 });
 
 app.get('/notes/:id', async (req, res) => {
-  const id = req.params.id;
-  const notesList = await db.getOneNote(id);
+    const id = req.params.id;
+    const notesList = await db.getOneNote(id);
 
-  res.render(`notes/views/update`, {title: 'Note', notesList});
+    res.render(`notes/views/update`, {title: 'Note', notesList});
 });
 
 app.post('/notes', async function (req, res) {
-  await db.addNote(req.body);
-  const [list, note] = [
-    await db.getList(),
-    await db.getNote()
-  ];
+    await db.addNote(req.body);
+    const [list, note] = [
+        await db.getList(),
+        await db.getNote()
+    ];
 
-  res.render('views/index', {
-    title: 'ToDo',
-    notesList: note,
-    listItem: list
-  });
+    res.render('views/index', {
+        title: 'ToDo',
+        notesList: note,
+        listItem: list
+    });
 });
 
 app.put('/notes/:id', async (req, res) => {
-  await db.updateNote(req.body);
+    await db.updateNote(req.body);
 
-  const [list, note] = [
-    await db.getList(),
-    await db.getNote()
-  ];
+    const [list, note] = [
+        await db.getList(),
+        await db.getNote()
+    ];
 
-  res.render('views/index', {
-    title: 'ToDo',
-    notesList: note,
-    listItem: list
-  });
+    res.render('views/index', {
+        title: 'ToDo',
+        notesList: note,
+        listItem: list
+    });
 });
 
 app.delete('/notes/:id', async (req, res) => {
-  await db.deleteNote(req.body);
+    await db.deleteNote(req.body);
 
-  const [list, note] = [
-    await db.getList(),
-    await db.getNote()
-  ];
+    const [list, note] = [
+        await db.getList(),
+        await db.getNote()
+    ];
 
-  res.render('views/index', {
-    title: 'ToDo',
-    notesList: note,
-    listItem: list
-  });
+    res.render('views/index', {
+        title: 'ToDo',
+        notesList: note,
+        listItem: list
+    });
 });
 
 app.get('/', async function (req, res) {
-  const [list, note] = [
-    await db.getList(),
-    await db.getNote()
-  ];
+    const [list, note] = [
+        await db.getList(),
+        await db.getNote()
+    ];
 
-  res.render('views/index', {
-    title: 'ToDo',
-    notesList: note,
-    listItem: list
-  });
+    res.render('views/index', {
+        title: 'ToDo',
+        notesList: note,
+        listItem: list
+    });
 });
 //
 app.get('/lists', async (req, res) => {
-  res.render('list/views/create', {title: 'Lists'})
+    res.render('list/views/create', {title: 'Lists'})
 });
 
 app.post('/lists', async (req, res) => {
-  await db.addLists(req.body);
+    await db.addLists(req.body);
 
-  const [list, note] = [
-    await db.getList(),
-    await db.getNote()
-  ];
+    const [list, note] = [
+        await db.getList(),
+        await db.getNote()
+    ];
 
-  res.render('views/index', {
-    title: 'ToDo',
-    notesList: note,
-    listItem: list
-  });
+    res.render('views/index', {
+        title: 'ToDo',
+        notesList: note,
+        listItem: list
+    });
 });
 
 app.get('/lists/:id', async (req, res) => {
-  const id = req.params.id;
-  const listItem = await db.getOneList(id);
+    const id = req.params.id;
+    const listItem = await db.getOneList(id);
 
-  res.render(`list/views/update`, {title: 'Edit list', listItem});
+    res.render(`list/views/update`, {title: 'Edit list', listItem});
 });
 
 app.put('/lists/:id', async (req, res) => {
 
-  await db.updateList(req.body);
-  const [list, note] = [
-    await db.getList(),
-    await db.getNote()
-  ];
+    await db.updateList(req.body);
+    const [list, note] = [
+        await db.getList(),
+        await db.getNote()
+    ];
 
-  res.render('views/index', {
-    title: 'ToDo',
-    notesList: note,
-    listItem: list
-  });
+    res.render('views/index', {
+        title: 'ToDo',
+        notesList: note,
+        listItem: list
+    });
+});
+
+app.put('/', async (req) => {
+    await db.updateCheckList(req.body);
 });
 
 app.delete('/lists/:id', async (req, res) => {
-  await db.deleteList(req.body);
+    await db.deleteList(req.body);
 
-  const [list, note] = [
-    await db.getList(),
-    await db.getNote()
-  ];
+    const [list, note] = [
+        await db.getList(),
+        await db.getNote()
+    ];
 
-  res.render('views/index', {
-
-    title: 'ToDo',
-    notesList: note,
-    listItem: list
-  });
+    res.render('views/index', {
+        title: 'ToDo',
+        notesList: note,
+        listItem: list
+    });
 });
+
 module.exports = app;
