@@ -66,7 +66,8 @@ describe('API tests', function () {
                 .set('Accept', 'application/json')
                 .send({
                     title: 'test mocha',
-                    text: ['testing', 'route', 'lists']
+                    text: ['testing', 'route', 'lists'],
+                    classlist: ['checked', 'checked', 'checked']
                 })
                 .expect(200, done);
         });
@@ -110,7 +111,8 @@ describe('API tests', function () {
                 .set('Accept', 'application/json')
                 .send({
                     title: 'test mocha',
-                    text: ['testing', 'route', 'lists']
+                    text: ['testing', 'route', 'lists'],
+                    classlist: ['checked', 'checked', 'checked']
                 })
                 .expect(200, done);
         });

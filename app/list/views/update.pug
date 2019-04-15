@@ -3,12 +3,12 @@ block header
     div#note-list(class='note')
         input#title-note(class='note-title-text' maxlength="15" value=`${listItem.title}` name='title')
         ul#todo-list
-            each val in listItem.text
+            each val, index in listItem.classlist
                 li.todo-item.todo-item_ml
-                    label
-                        input.checkbox(type='checkbox')
-                        span.icon.icon_top
-                        input(class='list list-text' type='text' value=`${val}`)
+                    input.checkbox(type='checkbox')
+                    input(class=`list ${val}` type='text' value= listItem.text[index] maxlength="20")
+                    button#delItem
+                        i(class="fas fa-times-circle")
         div#todo-manage
             input#list-input(type='text' maxlength="20" placeholder='Enter task')
             button#list-button(type='submit')

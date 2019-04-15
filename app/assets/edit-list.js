@@ -1,6 +1,8 @@
 const ul = document.getElementById('todo-list');
 const saveButton = document.getElementById('save');
 const deleteButton = document.getElementById('delete');
+let checkbox = null || Array.from(document.getElementsByClassName('checkbox'));
+Array.from(document.querySelectorAll('#delItem')).forEach(item => item.addEventListener('click', deleteTodoItem));
 
 function addTask() {
     const task = document.getElementById('list-input');
@@ -11,24 +13,24 @@ function addTask() {
     const li = document.createElement('li');
     li.className = 'todo-item todo-item_ml';
 
-    const label = document.createElement('label');
-
     const input = document.createElement('input');
     input.className = 'checkbox';
-    input.name = 'check';
     input.setAttribute('type', 'checkbox');
 
-    const span = document.createElement('span');
-    span.className = 'icon icon_top';
+    const button = document.createElement('button');
+    button.id = 'delItem';
+    button.innerHTML = '<i class="fas fa-times-circle"></i>';
+    button.addEventListener('click', deleteTodoItem);
 
     const inputLabel = document.createElement('input');
-    inputLabel.className = 'list list-text';
+    inputLabel.className = 'list';
+    inputLabel.type = 'text';
     inputLabel.value = task.value;
+    inputLabel.setAttribute('maxlength', '20');
 
-    label.appendChild(input);
-    label.appendChild(span);
-    label.appendChild(inputLabel);
-    li.appendChild(label);
+    li.appendChild(input);
+    li.appendChild(inputLabel);
+    li.appendChild(button);
     ul.appendChild(li);
 
     task.value = '';
@@ -36,13 +38,26 @@ function addTask() {
 
 document.getElementById('list-button').addEventListener('click', addTask);
 
+checkbox.forEach(item => item.addEventListener('click', function () {
+    this.nextSibling.classList.toggle('checked');
+}));
+
+function deleteTodoItem() {
+    const listItem = this.parentNode;
+    ul.removeChild(listItem);
+}
+
 saveButton.addEventListener('click', async function () {
-    const text = Array.from(document.getElementsByClassName('list-text')).map(item => item.value);
+    const text = Array.from(document.getElementsByClassName('list')).map(item => item.value);
     const title = document.getElementById('title-note').value;
     const id = window.location.pathname.substring(7);
+    const classlist = Array.from(document.querySelectorAll('.list')).map(item => item.className.substring(5));
 
     if (!title) {
         alert('You must enter title');
+        return;
+    } else if (!text.length) {
+        alert('You must enter description in task');
         return;
     }
 
@@ -52,6 +67,7 @@ saveButton.addEventListener('click', async function () {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
+            classlist,
             id,
             title,
             text

@@ -21,11 +21,9 @@ block header
                 each val in listItem
                     a.new-lists(href=`/lists/${val._id}`)
                         h4.note-title= `${val.title}`
-                        each item in val.text
+                        each item, index in val.classlist
                             li.todo-item
-                                label
-                                    input.checkbox(type='checkbox')
-                                    span.icon
-                                    span.list= `${item}`
+                                input.checkbox(type='checkbox')
+                                span(class=`list ${item}`)= val.text[index]
 
     script(src='main.js')

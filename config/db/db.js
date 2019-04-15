@@ -1,7 +1,6 @@
 const {uri, dbName} = require('./config');
 
 const MongoClient = require('mongodb').MongoClient;
-// const MongoDB = require('mongodb');
 const ObjectId = require('mongodb').ObjectID;
 
 exports.checkConnection = async () => {
@@ -107,12 +106,12 @@ exports.getList = async () => {
     let client = null;
     let tasks = null;
     try {
-        client = await new MongoClient.connect(uri, {useNewUrlParser: true});
+        client = await MongoClient.connect(uri, {useNewUrlParser: true});
         const currentDb = client.db(dbName);
         const todoCol = currentDb.collection('lists');
         tasks = todoCol.find({}).toArray();
     } catch (e) {
-        if (e) throw new Error(`${e.name} error in getNote`);
+        if (e) throw new Error(`${e.name} error in getList`);
     }
 
     client.close();
@@ -121,7 +120,7 @@ exports.getList = async () => {
 };
 
 exports.getOneList = async (id) => {
-    const query = {_id: new ObjectId(id)};
+    const query = {_id: ObjectId(id)};
     let data = null;
     let client = null;
     try {
@@ -131,7 +130,7 @@ exports.getOneList = async (id) => {
         const todoCol = currentDB.collection('lists');
         data = todoCol.findOne(query);
     } catch (e) {
-        if (e) throw new Error(`${e} error in getOneNote`);
+        if (e) throw new Error(`${e} error in getOneList`);
     }
 
     client.close();
@@ -147,10 +146,27 @@ exports.updateList = async (list) => {
         const currentDb = client.db(dbName);
         const todoCol = currentDb.collection('lists');
 
-        await todoCol.updateOne(query, {$set: {title: list.title, text: list.text}});
+        await todoCol.updateOne(query, {$set: {classlist: list.classlist, title: list.title, text: list.text}});
 
     } catch (e) {
-        if (e) throw new Error(`${e} error in updateNote`);
+        if (e) throw new Error(`${e} error in updateList`);
+    }
+    client.close();
+};
+
+exports.updateCheckList = async list => {
+    const query = {_id: new ObjectId(list.id)};
+    let client = null;
+
+    try {
+        client = await new MongoClient.connect(uri, {useNewUrlParser: true});
+        const currentDb = client.db(dbName);
+        const todoCol = currentDb.collection('lists');
+
+        await todoCol.updateOne(query, {$set: {classlist: list.classlist}});
+
+    } catch (e) {
+        if (e) throw new Error(`${e} error in updateCheckList`);
     }
     client.close();
 };
@@ -165,7 +181,7 @@ exports.deleteList = async (list) => {
         const todoCol = currentDb.collection('lists');
         await todoCol.deleteOne(query);
     } catch (e) {
-        if (e) throw new Error(`${e.name} error in deleteNote`);
+        if (e) throw new Error(`${e.name} error in deleteList`);
     }
     client.close();
 };
