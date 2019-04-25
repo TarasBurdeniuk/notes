@@ -108,6 +108,7 @@ textarea {
 #main-notes, #main-lists {
     width: 100%;
     text-align: center;
+    padding-top: 120px;
 }
 
 #note-page, #lists-page {
@@ -193,6 +194,8 @@ textarea {
 }
 
 .nav-bar {
+    position: fixed;
+    z-index: 1;
     background-color: #262626;
     width: 100%;
     height: 100px;
@@ -250,9 +253,10 @@ textarea {
 
 #todo-list {
     margin: 0;
-    padding: 0;
+    padding: 10px 0;
     list-style: none;
     height: 225px;
+    overflow-y: scroll;
 }
 
 #todo-manage {
@@ -293,6 +297,7 @@ textarea {
     border: none;
     margin: 0 10px;
     width: 100%;
+    text-align: left;
 }
 
 .new-lists p {
